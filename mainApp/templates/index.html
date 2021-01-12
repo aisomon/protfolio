@@ -4,20 +4,24 @@
 
 <html class="no-js" lang="zxx">
     <head>
+		
+		{% for setting in settings %}
+			
         <!-- Meta tag -->
 		<meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="description" content="">
+		<meta name="description" content="{{ setting.description }}">
 		<meta name='copyright' content='codeglim'>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">	
 		
 		<!-- Title Tag -->
-        <title>Azharul Islam Somon</title>
+        <title>{{setting.title}}</title>
 		
 		<!-- Favicon -->
-		<link rel="icon" type="image/png" href="static/images/favicon.ico">	
+		<link rel="icon" type="image/png" href="{{setting.icon.url}}">	
 
+		{% endfor %}
 		<!-- Jquery Ajax -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		
@@ -53,20 +57,7 @@
 		
 		<!-- Maheraj Template Color -->
 		<link rel="stylesheet" href="static/css/color/color1.css">
-		<!--<link rel="stylesheet" href="css/color/color2.css">-->
-		<!--<link rel="stylesheet" href="css/color/color3.css">-->
-		<!--<link rel="stylesheet" href="css/color/color4.css">-->
-		<!--<link rel="stylesheet" href="css/color/color5.css">-->
-		<!--<link rel="stylesheet" href="css/color/color6.css">-->
-		<!--<link rel="stylesheet" href="css/color/color7.css">-->
-		<!--<link rel="stylesheet" href="css/color/color8.css">-->
-		<!--<link rel="stylesheet" href="css/color/color9.css">-->
-		<!--<link rel="stylesheet" href="css/color/color10.css">-->
 
-		<!--[if lt IE 9]>
-           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
 		
     </head>
     <body>
@@ -90,7 +81,7 @@
 					<div class="col-md-2 col-sm-12 col-xs-12">
 						<!-- Logo -->
 						<div class="logo">
-							<a href="">A I Somon</a>
+							<a href="" title="Software Developer">A I Somon</a>
 						</div>
 						<!--/ End Logo -->
 						<div class="mobile-nav"></div>
@@ -143,7 +134,6 @@
 										   <span class="cd-words-wrapper">
 											   <b class="is-visible">Python / Django Developer</b>
 											   <b>Android Mobile App Developer</b>
-											   <b>UI/UX DESIGNER</b>
 											</span>
 										</h2>
 										<div class="button">
@@ -180,26 +170,31 @@
 									<div class="about-text">
 										<h2 class="tab-title">About Me</h2>
 										<div class="row">
+											
+											{% for setting in settings %}
+												
 											<div class="col-md-4 col-sm-4 col-xs-12">
 												<!-- About Image -->
 												<div class="single-image">
-													<img src="static/images/about.jpg" alt="">
+													<img src="{{ setting.backround_image.url }}" alt="">
 												</div>
 											</div>
 											<!-- End About Image -->
 											<div class="col-md-8 col-sm-12 col-xs-12">
 												<div class="content">
-													<p>I am a diligent worker who has a firm command over coding. Server side web development is my passion. I am a hard worker who accept challenges with pleasure and work efficiently.Hopping to connected with the web development industry and information technology to learn new things. Well-organised person, problem solver, independent employee with high attention to detail.</p>
+													<p>{{setting.aboutus}}</p>
 												</div>
 												<div class="social">
 													<ul>
-														<li><a href="https://www.facebook.com/azharul.sumon96/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-														<li><a href="https://twitter.com/sumon_gsc14/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-														<li><a href="https://www.linkedin.com/in/md-azharul-islam-somon/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-														<li><a href="https://github.com/sumonmediu/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+														<li><a href="{{setting.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+														<li><a href="{{setting.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+														<li><a href="{{setting.instagram}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+														<li><a href="{{setting.github}}" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
 													</ul>
 												</div>
 											</div>
+												
+											{% endfor %}
 										</div>
 									</div>
 								</div>
@@ -341,36 +336,20 @@
 					</div>
 				</div>
 				<div class="row">
+					
+					{% for m in myArea %}
+						
 					<div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.4s">
 						<!-- Single Service -->
-						<div class="single-service active">
-							<i class="fa fa-html5"></i>
-							<h2>Web Design</h2>
-							<img src="static/images/web_design.jpg" alt="Web design" srcset="">
+						<div class="single-service ">
+							<i class="{{m.fa_fa_awsome_icon}}"></i>
+							<h2>{{m.title}}</h2>
+							<img src="{{ m.area_image.url }}" alt="Web design" srcset="">
 							<!-- <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some</p> -->
 						</div>
 						<!-- End Single Service -->
 					</div>
-					<div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.6s">
-						<!-- Single Service -->
-						<div class="single-service">
-							<i class="fa fa-code"></i>
-							<h2>Web App Development</h2>
-							<img src="static/images/web_deve_django.jpg" alt="Web App Development" srcset="">
-							<!-- <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some</p> -->
-						</div>
-						<!-- End Single Service -->
-					</div>
-					<div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-delay="0.8s">
-						<!-- Single Service -->
-						<div class="single-service">
-							<i class="fa fa-mobile"></i>
-							<h2>App Development</h2>
-							<img src="static/images/app_deve.jpg" alt="App Development" srcset="">
-							<!-- <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some</p> -->
-						</div>
-						<!-- End Single Service -->
-					</div>
+					{% endfor %}
 				</div>
 			</div>
 		</section>
@@ -551,7 +530,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="call-action-main">
-							<h2>I'm available now for you !</h2>
+							<h2>I'm available now !</h2>
 							<p>Searching for a desirable opportunity with which I will have the scopein utilizing my skills and potentiality to do something innovative forthe benefit of mankind and the society as well and from which I will beable to enhance my knowledge and efficiency. </p>
 							<div class="button">
 								<a href="https://drive.google.com/uc?id=1TdG5b4ux9ZI8mjUl1sOaPevMkPQ1pqmH&export=download" download="Azharul_Islam_Somon" class="btn">
@@ -578,7 +557,7 @@
 					<!-- Contact google -->
 					<div class="col-md-6 col-sm-6 col-xs-12 wow fadeInRight" data-wow-delay="0.4s">
 						<div class="contact">
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.086077019725!2d90.35381201481654!3d23.81553798455731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c121e29c6b8f%3A0x47929942efce4659!2sRupnagar%20Rd%20%26%20Rd%20No.%2019%2C%20Dhaka%201216!5e0!3m2!1sen!2sbd!4v1608030624723!5m2!1sen!2sbd" width="520" height="315" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.086077019725!2d90.35381201481654!3d23.81553798455731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c121e29c6b8f%3A0x47929942efce4659!2sRupnagar%20Rd%20%26%20Rd%20No.%2019%2C%20Dhaka%201216!5e0!3m2!1sen!2sbd!4v1608030624723!5m2!1sen!2sbd" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 						</div>
 					</div>
 					<!--/ End Contact Address -->
@@ -638,6 +617,9 @@
 			</div>
 			<!--/ End Arrow -->
 			<div class="container">
+				
+				{% for setting in settings %}
+					
 				<div class="row">
 					<div class="col-md-4">
 						<!-- Single Address -->
@@ -645,7 +627,7 @@
 							<i class="fa fa-phone"></i> 
 							<div class="title">
 								<h4>My Phone</h4>
-								<p>+8801737922208<br></p>
+								<p>{{ setting.phone}}<br></p>
 							</div>
 						</div>
 						<!--/ End footer Address -->
@@ -655,7 +637,7 @@
 							<i class="fa fa-envelope"></i> 
 							<div class="title">
 								<h4>Email Address</h4>
-								<p>sumon.gsc14@gmail.com,<br>azharul.islamsomon96@gmail.com</p>
+								<p>{{setting.email}}</p>
 							</div>
 						</div>
 					  </div>
@@ -664,7 +646,7 @@
 							<i class="fa fa-map-marker"></i> 
 							<div class="title">
 								<h4>Address</h4>
-								<p>Road: 19, Rupnagar Abashik,<br> Mirpur-2, Dhaka</p>
+								<p>{{ setting.address }}</p>
 							</div>
 						</div>
 					  </div>
@@ -673,21 +655,22 @@
 					<div class="col-md-6 col-sm-6 col-xs-12">
 						<!-- Copyright -->
 						<div class="copyright">
-							<p>&copy; Copyright 2020 A I Somon. Design & Development By <a href="https://aisumon.com">A I Somon</a></p>
+							<p>&copy; Copyright 2020 A I Somon. Design & Development By <a href="http://aisomon.pythonanywhere.com/"  target="_blank">A I Somon</a></p>
 						</div>
 						<!--/ End Copyright -->
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-12">
 						<!-- Social -->
 						<ul class="social">
-							<li><a href="https://www.facebook.com/azharul.sumon96/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="https://twitter.com/sumon_gsc14/" target="_blank"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="https://www.linkedin.com/in/md-azharul-islam-somon/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="https://github.com/sumonmediu/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+							<li><a href="{{setting.facebook}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="{{setting.twitter}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="{{setting.instagram}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="{{setting.github}}" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
 						</ul>
 						<!--/ End Social -->
 					</div>
 				</div>
+				{% endfor %}
 			</div>
 		</footer>
 		<!--/ End Footer -->
